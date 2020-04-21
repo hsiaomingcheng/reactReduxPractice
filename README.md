@@ -1,19 +1,17 @@
-# baseEnvironment
-base environment before react
-開始react前的基本環境建置
+# react的redux練習
+[Redux與React-Redux中文教學書](https://chentsulin.github.io/redux/index.html)
 
-## 使用的React相關有
-    1.react
-    2.react-dom
-    3.react-hot-loader
+***
 
-## 使用的webpack相關有
-    1.webpack
-    2.webpack-cli
-    3.webpack-dev-server
+[基本練習分支(觀察action、reducer、store之間的關係與運作方式)](https://github.com/hsiaomingcheng/reactReduxPractice/tree/feature/200420/add-redux/chrishsiao)
 
-## 使用的babel相關有
-    1.@babel/cli
-    2.@babel/core
-    3.@babel/preset-env
-    4.@babel/preset-react
+***
+
+## 安裝redux與react-redux
+    # NPM
+    npm install redux
+    npm install react-redux
+
+    # Yarn
+    yarn add redux
+    yarn add react-redux
