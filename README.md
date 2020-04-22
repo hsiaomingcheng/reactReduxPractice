@@ -1,5 +1,6 @@
 # react的redux練習
 [Redux與React-Redux中文教學書](https://chentsulin.github.io/redux/index.html)
+[我的medium](https://medium.com/@hsiao516/%E5%9C%A8react%E4%B8%8A%E4%BD%BF%E7%94%A8redux-c6a37853c5ac)
 
 ***
 
