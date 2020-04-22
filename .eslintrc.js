@@ -26,8 +26,14 @@ module.exports = {
     ],
     'rules': { //規則
         'no-console': 'error',
+        'no-plusplus': 'off',
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
         'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': ['error', 'first'],
+        'react/jsx-props-no-spreading': 'off',
+        'react/prop-types': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/anchor-is-valid': 'off',
     }
 };
