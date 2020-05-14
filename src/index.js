@@ -1,36 +1,26 @@
+// Needed for redux-saga es6 generator ie11 support
+import '@babel/polyfill';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import axios from 'axios';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers';
+import mySaga from './sagas';
 import App from './components/App';
 
-/* eslint-disable no-underscore-dangle */
-const store = createStore(
-    reducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
-/* eslint-enable */
+// 建立 saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
-// axios({
-//     method: 'get',
-//     url: 'https://5ea5b3f02d86f00016b46164.mockapi.io/api/v1/users',
-// })
-//     .then((result) => { console.log(result.data); })
-//     .catch((err) => { console.error(err); });
+// 將 saga middleware mount 在 Store 上
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(sagaMiddleware),
+));
 
-const instance = axios.create({
-    url: '/users',
-    baseURL: 'https://5ea5b3f02d86f00016b46164.mockapi.io/api/v1',
-    responseType: 'json',
-});
-
-instance.get('/users')
-    .then((response) => {
-        // eslint-disable-next-line no-console
-        console.log(response.data);
-    });
+// 然後執行 saga
+sagaMiddleware.run(mySaga);
 
 render(
     <Provider store={store}>
