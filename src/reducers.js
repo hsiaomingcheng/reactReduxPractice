@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {
-    ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters,
+    // eslint-disable-next-line max-len
+    ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, SET_VISIBILITY_FILTER_SUCCEEDED, VisibilityFilters,
 } from './actions';
 
 const { SHOW_ALL } = VisibilityFilters;
@@ -9,6 +10,15 @@ function visibilityFilter(state = SHOW_ALL, action) {
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter;
+        default:
+            return state;
+    }
+}
+
+function visibilityFilterSucceeded(state = null, action) {
+    switch (action.type) {
+        case SET_VISIBILITY_FILTER_SUCCEEDED:
+            return action.response.data;
         default:
             return state;
     }
@@ -39,6 +49,7 @@ function todos(state = [], action) {
 
 const reducer = combineReducers({
     visibilityFilter,
+    visibilityFilterSucceeded,
     todos,
 });
 
