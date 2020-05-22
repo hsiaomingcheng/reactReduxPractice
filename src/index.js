@@ -1,5 +1,6 @@
 // Needed for redux-saga es6 generator ie11 support
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator/runtime';
 
 import React from 'react';
 import { render } from 'react-dom';
